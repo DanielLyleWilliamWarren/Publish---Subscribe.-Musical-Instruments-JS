@@ -13,5 +13,5 @@ document.addEventListener('DOMContentLoaded', function (){
     instrumentFamilyInfoDisplay.bindEvents();
 
     const familyDataSource = new InstrumentFamilies();
-    familyDataSource.bindEvents();
+    familyDataSource.bindEvents(); //Must have data model last.
 });

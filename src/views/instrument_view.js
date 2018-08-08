@@ -12,24 +12,56 @@ InstrumentFamiliesInfoView.prototype.bindEvents = function () {
   });
 };
 
+// InstrumentFamiliesInfoView.prototype.render = function (family) {
+//   const infoParagraph = document.createElement('p');
+//   infoParagraph.textContent = `${family.description} `;
+//   this.container.innerHTML = '';
+//   this.container.appendChild(infoParagraph);
+// };
+//
+// InstrumentFamiliesInfoView.prototype.populteListOfInstruments = function (instuments) {
+// const  listOfInstruments = document.createElement('ul');
+//   instrument.instruments.forEach(information => {
+//     const listItem = this.createElement('li', family.instruments);
+//     listItem.textContent = information;
+//     this.container.appendChild(listItem);
+//     this.container.appendChild(instrumentHeading);
+//
+//   })
+// };
+
 InstrumentFamiliesInfoView.prototype.render = function (family) {
-  const infoParagraph = document.createElement('p');
-  infoParagraph.textContent = `${family.description} `;
   this.container.innerHTML = '';
-  this.container.appendChild(infoParagraph);
+
+  const familyName = this.createElement('h2', family.name);
+  this.container.appendChild(familyName);
+
+  const familyDescription = this.createElement('p', family.description);
+  this.container.appendChild(familyDescription);
+
+  const instrumentListTitle = this.createElement('h3', 'Instruments include:');
+  this.container.appendChild(instrumentListTitle);
+
+  const instrumentList = this.createInstrumentList(family.instruments);
+  this.container.appendChild(instrumentList);
 };
 
-InstrumentFamiliesInfoView.prototype.populteListOfInstruments = function (instrument) {
-  listOfInstruments = document.createElement('ol');
-  instrumentHeading = document.createElement('h1');
-  listOfInstruments.textContent = instrument.name;
+InstrumentFamiliesInfoView.prototype.createElement = function (elementType, text) {
+  const element = document.createElement(elementType);
+  element.textContent = text;
+  return element;
+};
 
+InstrumentFamiliesInfoView.prototype.createInstrumentList = function (instruments) {
+  const list = document.createElement('ul');
 
-  instrument.instruments.forEach(information => {
+  instruments.forEach((instrument) => {
     const listItem = document.createElement('li');
-    listItem.textContent = information;
-    listOfInstruments.appendChild(listItem);
-  })
+    listItem.textContent = instrument;
+    list.appendChild(listItem);
+  });
+
+  return list;
 };
 
 
