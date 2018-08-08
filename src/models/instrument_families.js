@@ -42,7 +42,6 @@ InstrumentFamilies.prototype.bindEvents = function () {
 InstrumentFamilies.prototype.publishInstrumentDetail = function (familyIndex) {
   const selectedFamily = this.instrumentFamilies[familyIndex];
   PubSub.publish('InstrumentFamilies:selected-family-ready', selectedFamily)
-
 };
 
 

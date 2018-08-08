@@ -7,7 +7,7 @@ const SelectView = function(element){
 SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('InstrumentFamilies:all-instruments-ready', (evt) =>{
     const allFamilies = evt.detail;
-    this.populate(allFamiles);
+    this.populate(allFamilies);
   });
 
   this.element.addEventListener('change', (evt) => {
